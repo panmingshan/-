@@ -1,0 +1,16 @@
+{
+    "ug": {
+        "uglifyOptions": {
+            "ecma": 8,
+            "mangle": true,
+            "output": {
+                "comments": false
+            },
+            "compress": {
+                "warnings": false
+            }
+        }
+    },
+    "vue": true,
+    "isES5": false
+}

@@ -7,6 +7,15 @@
 var app = require('../app');
 var debug = require('debug')('static:server');
 var http = require('http');
+var https = require("https")
+const fs = require("fs");
+
+var path=require('path');
+
+const options = {
+  key : fs.readFileSync(path.join(__dirname,'../ssl/cert-1540265559868_panmingshan.com.key')),
+  cert : fs.readFileSync(path.join(__dirname,'../ssl/cert-1540265559868_panmingshan.com.crt'))
+}
 
 /**
  * Get port from environment and store in Express.
@@ -20,6 +29,7 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+var httsServer = https.createServer(options,app).listen(443);
 
 /**
  * Listen on provided port, on all network interfaces.

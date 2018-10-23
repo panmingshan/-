@@ -30,7 +30,12 @@ app.set('port', port);
 
 var server = http.createServer(app);
 var httsServer = https.createServer(options,app).listen(3001);
-
+httsServer.on("error",function (e) {
+  console.log("---------error------------",e)
+})
+httsServer.on("listening",function (e) {
+  console.log("listening", e)
+})
 /**
  * Listen on provided port, on all network interfaces.
  */
